@@ -71,9 +71,26 @@ def save_result(request):
 
     return Response(serializer.errors)
 
-
 @api_view(['GET'])
 def leaderboard(request):
-    results = Result.objects.order_by('-score')
-    serializer = ResultSerializer(results, many=True)
-    return Response(serializer.data)
+
+    exam_id = request.GET.get('exam_id')
+
+    results = Result.objects.all()
+
+    # ✅ THIS IS THE KEY FIX
+    if exam_id:
+        results = results.filter(exam_id=exam_id)
+
+    data = []
+
+    for r in results:
+        data.append({
+            "id": r.id,
+            "student": r.student,
+            "exam": r.exam.id,
+            "score": r.score,
+            "total": r.total
+        })
+
+    return Response(data)
