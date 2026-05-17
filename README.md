@@ -1,6 +1,6 @@
 # 🧠 Smart Exam Portal
 
-A full-stack **Smart Exam Management System** built using **React (Frontend)** and **Django / FastAPI (Backend)**.  
+A full-stack **Smart Exam Management System** built using **React (Frontend)** and **Django (Backend)**.  
 It allows students to take MCQ-based exams with timers, automatic scoring, and exam tracking.
 
 ---
@@ -8,7 +8,7 @@ It allows students to take MCQ-based exams with timers, automatic scoring, and e
 ## 🚀 Features
 
 ### 👨‍🎓 Student Features
-- Login / Register system (if implemented)
+- Login & signup system
 - Take MCQ-based exams
 - Real-time exam timer ⏱️
 - Auto-submit when time ends
@@ -33,7 +33,7 @@ It allows students to take MCQ-based exams with timers, automatic scoring, and e
 - HTML, CSS, JavaScript
 
 ### Backend
-- Django / Django REST Framework (or FastAPI)
+- Django / Django REST Framework
 - Python
 - REST APIs
 
