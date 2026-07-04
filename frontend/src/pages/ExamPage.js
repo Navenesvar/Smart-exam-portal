@@ -22,48 +22,29 @@ function ExamPage() {
     useState(0);
 
   // Check login
-  useEffect(() => {
+useEffect(() => {
 
-    const user =
-      localStorage.getItem("loggedInUser");
+  const user = localStorage.getItem("loggedInUser");
 
-    if (!user) {
+  if (!user) {
+    alert("Please login first");
+    navigate("/login");
+    return;   // Stop here
+  }
 
-      alert("Please login first");
-
-      navigate("/login");
-
-    }
-
-  }, [navigate]);
-
-  // Fullscreen mode
-  useEffect(() => {
-
-    const enterFullscreen = async () => {
-
-      try {
-
-        if (
-          document.documentElement
-            .requestFullscreen
-        ) {
-
-          await document.documentElement
-            .requestFullscreen();
-
-        }
-
-      } catch (err) {
-
-        console.log(err);
-
+  const enterFullscreen = async () => {
+    try {
+      if (document.documentElement.requestFullscreen) {
+        await document.documentElement.requestFullscreen();
       }
-    };
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-    enterFullscreen();
+  enterFullscreen();
 
-  }, []);
+}, [navigate]);
 
   // Fetch questions
   useEffect(() => {
